@@ -1,0 +1,1034 @@
+/* =============================================
+   TINA LICHTENTHAL — tinalichtenthal.com
+   Vizuális identitás & Stíluslap
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- CSS változók ---- */
+:root {
+  --navy:       #1F3864;
+  --blue:       #2E75B6;
+  --gold:       #C9A961;
+  --gold-light: #e6c97d;
+  --bg-blue:    #DEEBF7;
+  --white:      #FFFFFF;
+  --offwhite:   #FAFAFA;
+  --light-gray: #F2F2F2;
+  --text:       #262626;
+  --text-muted: #6b7280;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --max-w: 1200px;
+  --section-pad: 96px 24px;
+  --radius: 6px;
+
+  --shadow-sm: 0 2px 8px rgba(31,56,100,0.08);
+  --shadow-md: 0 8px 32px rgba(31,56,100,0.12);
+  --shadow-lg: 0 16px 48px rgba(31,56,100,0.18);
+}
+
+/* ---- Reset & alap ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--offwhite);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ---- Konténer ---- */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =============================================
+   NAVIGÁCIÓ
+   ============================================= */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250,250,250,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31,56,100,0.08);
+  transition: box-shadow 0.3s;
+}
+.navbar.scrolled { box-shadow: var(--shadow-sm); }
+
+.nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.nav-brand span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--blue); background: var(--bg-blue); }
+.nav-links a.active { color: var(--navy); font-weight: 600; }
+.nav-links .nav-cta {
+  background: var(--navy);
+  color: white !important;
+  padding: 8px 18px;
+}
+.nav-links .nav-cta:hover { background: var(--blue); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+
+/* =============================================
+   TIPOGRÁFIA
+   ============================================= */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--navy);
+}
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.section-title { margin-bottom: 16px; }
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+.italic-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* =============================================
+   GOMBOK
+   ============================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.btn-primary:hover { background: var(--blue); border-color: var(--blue); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-secondary {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.btn-secondary:hover { background: var(--blue); color: white; transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,169,97,0.35); }
+.btn-white {
+  background: white;
+  color: var(--navy);
+  border-color: white;
+}
+.btn-white:hover { background: var(--bg-blue); border-color: var(--bg-blue); }
+
+.btn-group { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* =============================================
+   HERO SZEKCIÓ
+   ============================================= */
+.hero {
+  min-height: 100vh;
+  padding: 120px 24px 80px;
+  display: flex;
+  align-items: center;
+  background: var(--offwhite);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -80px;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(46,117,182,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -40px;
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,169,97,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-text { position: relative; z-index: 1; }
+.hero-tagline {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--text-muted);
+  margin: 20px 0 36px;
+  max-width: 480px;
+  line-height: 1.75;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ICMM Mini-vizualizáció a hero-ban */
+.hero-diagram {
+  width: 100%;
+  max-width: 420px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+.scroll-hint svg { opacity: 0.5; }
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* =============================================
+   ÁLTALÁNOS SZEKCIÓK
+   ============================================= */
+.section { padding: var(--section-pad); }
+.section-navy { background: var(--navy); }
+.section-navy h1, .section-navy h2, .section-navy h3, .section-navy h4 { color: white; }
+.section-navy p, .section-navy .eyebrow { color: rgba(255,255,255,0.75); }
+.section-navy .eyebrow::before { background: var(--gold); }
+.section-blue { background: var(--bg-blue); }
+.section-gray { background: var(--light-gray); }
+.section-gold { background: var(--gold); }
+.section-gold h1, .section-gold h2, .section-gold h3 { color: var(--navy); }
+.section-gold p { color: rgba(31,56,100,0.8); }
+.section-white { background: var(--white); }
+
+.section-header { margin-bottom: 56px; }
+.section-header.centered { text-align: center; }
+.section-header.centered .eyebrow { justify-content: center; }
+.section-header.centered .eyebrow::before { display: none; }
+.section-header.centered .section-desc { margin: 0 auto; }
+
+/* =============================================
+   KONCEPCIÓ SZEKCIÓ (Főoldal)
+   ============================================= */
+.concept-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 16px 0;
+}
+.concept-inner::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+.concept-inner .italic-quote { font-size: clamp(1.05rem, 2vw, 1.3rem); }
+.concept-inner p { margin-top: 20px; color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; }
+
+/* =============================================
+   KÁRTYA RÁCS (6 terület)
+   ============================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 32px 28px;
+  border: 1px solid rgba(31,56,100,0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+.card-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+.card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.icmm-center-badge {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  color: white;
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+/* =============================================
+   STATISZTIKÁK BLOKK
+   ============================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.stat-item {}
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* =============================================
+   PROJEKTEK BLOKK
+   ============================================= */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.project-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 28px;
+  border-left: 4px solid var(--blue);
+  box-shadow: var(--shadow-sm);
+}
+.project-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--bg-blue);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+.project-card h4 { color: var(--navy); margin-bottom: 8px; }
+.project-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+/* =============================================
+   ZÁRÓ CTA
+   ============================================= */
+.cta-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cta-inner h2 { color: var(--navy); margin-bottom: 16px; }
+.cta-inner p { margin-bottom: 36px; font-size: 1.05rem; }
+
+/* =============================================
+   LÁBLÉC
+   ============================================= */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-brand {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: 1.05rem;
+}
+.footer-brand small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 3px;
+}
+.footer-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.footer-nav a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: white; }
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: var(--max-w);
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+/* =============================================
+   MESTERSÉG OLDAL
+   ============================================= */
+.page-hero {
+  min-height: 50vh;
+  padding: 140px 24px 80px;
+  display: flex;
+  align-items: center;
+  background: var(--offwhite);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 60%, var(--bg-blue) 100%);
+  pointer-events: none;
+}
+.page-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.rich-text { max-width: 760px; }
+.rich-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.quote-block {
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+  padding: 32px 40px;
+  border-radius: 0 10px 10px 0;
+  margin: 40px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: '"';
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.25;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  line-height: 1;
+}
+
+/* Részletes 6 terület szekciók */
+.expertise-section {
+  padding: 64px 24px;
+}
+.expertise-section:nth-child(even) { background: var(--bg-blue); }
+.expertise-section:nth-child(odd) { background: var(--white); }
+.expertise-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.expertise-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+.expertise-content h3 { margin-bottom: 16px; }
+.expertise-content p { font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 12px; }
+
+/* Bridge szekció */
+.bridge-section {
+  background: var(--gold);
+  padding: 80px 24px;
+  text-align: center;
+}
+.bridge-inner { max-width: 680px; margin: 0 auto; }
+.bridge-inner h2 { color: var(--navy); margin-bottom: 16px; }
+.bridge-inner p { color: rgba(31,56,100,0.8); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.8; }
+
+/* =============================================
+   KUTATÁS OLDAL
+   ============================================= */
+.icmm-matrix {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(31,56,100,0.1);
+}
+.icmm-matrix table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.icmm-matrix th {
+  background: var(--navy);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 14px 16px;
+  text-align: center;
+}
+.icmm-matrix td {
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  text-align: center;
+  border: 1px solid rgba(31,56,100,0.06);
+}
+.icmm-matrix tr:nth-child(even) td { background: var(--bg-blue); }
+.icmm-matrix .level-label {
+  font-weight: 600;
+  color: var(--navy);
+  text-align: left;
+  font-size: 0.85rem;
+}
+.level-1 { border-left: 4px solid #ef4444; }
+.level-2 { border-left: 4px solid #f97316; }
+.level-3 { border-left: 4px solid #eab308; }
+.level-4 { border-left: 4px solid var(--blue); }
+.level-5 { border-left: 4px solid #22c55e; }
+
+.dim-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+.dim-card {
+  background: var(--offwhite);
+  border-radius: 10px;
+  padding: 24px 20px;
+  border-top: 3px solid var(--blue);
+  text-align: center;
+}
+.dim-card h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 6px; }
+.dim-card .dim-weight {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.dim-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* Trianguláció diagram */
+.tri-diagram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.tri-diagram::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 80px;
+  background: var(--navy);
+  border-radius: 50%;
+  z-index: 1;
+}
+.tri-node {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(31,56,100,0.08);
+  text-align: center;
+}
+.tri-node .tri-num {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--blue);
+  display: block;
+}
+.tri-node h4 { margin: 8px 0; color: var(--navy); }
+.tri-node p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+/* Elméleti hozzájárulások */
+.contribution-list { display: flex; flex-direction: column; gap: 32px; }
+.contribution-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.contribution-num {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.contribution-item h3 { margin-bottom: 10px; }
+.contribution-item p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.75; }
+
+/* Doktori terv */
+.phd-countries {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+.country-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 24px 20px;
+  text-align: center;
+  border: 1px solid rgba(31,56,100,0.08);
+}
+.country-card .country-flag { font-size: 2.4rem; margin-bottom: 10px; }
+.country-card h4 { color: var(--navy); margin-bottom: 6px; }
+.country-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* Letöltések */
+.downloads-list { display: flex; flex-direction: column; gap: 16px; }
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px 24px;
+  border: 1px solid rgba(31,56,100,0.08);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.download-info h4 { color: var(--navy); margin-bottom: 4px; }
+.download-info p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =============================================
+   RÓLAM OLDAL
+   ============================================= */
+.about-hero-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-photo {
+  position: relative;
+}
+.about-photo img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.about-photo::before {
+  content: '';
+  position: absolute;
+  bottom: -16px; right: -16px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Timeline */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--navy), var(--blue), var(--gold));
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 24px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--offwhite);
+  box-shadow: 0 0 0 3px var(--gold);
+}
+.timeline-item .year {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.timeline-item h4 { color: var(--navy); margin-bottom: 6px; }
+.timeline-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+/* Kompetenciák */
+.competence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.competence-block h3 { margin-bottom: 20px; }
+.competence-list li {
+  padding: 10px 0;
+  font-size: 0.92rem;
+  color: var(--text);
+  border-bottom: 1px solid rgba(31,56,100,0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.competence-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.edu-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(31,56,100,0.06);
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-item h4 { color: var(--navy); }
+.edu-item p { font-size: 0.88rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Iparági fókuszok */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+.industry-item {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px 12px;
+  border: 1px solid rgba(31,56,100,0.08);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.industry-item:hover { transform: translateY(-3px); border-color: var(--blue); }
+.industry-item .ind-icon { font-size: 2rem; margin-bottom: 8px; }
+.industry-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; font-weight: 500; }
+
+/* =============================================
+   KAPCSOLAT OLDAL
+   ============================================= */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.contact-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(31,56,100,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.contact-card-icon {
+  width: 52px; height: 52px;
+  background: var(--bg-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+.contact-card h3 { margin-bottom: 12px; }
+.contact-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--navy); }
+
+/* Kapcsolati űrlap */
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(31,56,100,0.15);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(46,117,182,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-group.gdpr {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.form-group.gdpr input { width: auto; margin-top: 2px; }
+.form-group.gdpr label {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* =============================================
+   FADE-IN ANIMÁCIÓ (scroll)
+   ============================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* =============================================
+   RESZPONZÍV
+   ============================================= */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { display: none; }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 2fr); gap: 24px; }
+  .dim-cards { grid-template-columns: repeat(2, 1fr); }
+  .phd-countries { grid-template-columns: repeat(2, 1fr); }
+  .industry-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-photo { max-width: 320px; }
+  .competence-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-pad: 64px 16px; }
+  .nav-links { display: none; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--offwhite); padding: 16px; border-bottom: 1px solid rgba(31,56,100,0.08); box-shadow: var(--shadow-md); }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .project-cards { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .tri-diagram { grid-template-columns: 1fr; }
+  .tri-diagram::before { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .phd-countries { grid-template-columns: repeat(2, 1fr); }
+  .dim-cards { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .contribution-item { grid-template-columns: 40px 1fr; }
+  .expertise-inner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 16px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.7rem; }
+  .btn-group { flex-direction: column; align-items: flex-start; }
+}
