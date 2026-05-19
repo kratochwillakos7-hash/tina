@@ -7,14 +7,14 @@
 
 /* ---- CSS változók ---- */
 :root {
-  --navy:       #111111;
-  --blue:       #444444;
-  --gold:       #888888;
-  --gold-light: #aaaaaa;
-  --bg-blue:    #efefef;
+  --navy:       #0d0d0d;
+  --blue:       #2a2a2a;
+  --gold:       #555555;
+  --gold-light: #777777;
+  --bg-blue:    #f0f0f0;
   --white:      #FFFFFF;
   --offwhite:   #FAFAFA;
-  --light-gray: #F0F0F0;
+  --light-gray: #EBEBEB;
   --text:       #1a1a1a;
   --text-muted: #666666;
 
@@ -302,9 +302,9 @@ h4 { font-size: 1.1rem; font-weight: 600; }
 .section-navy .eyebrow::before { background: var(--gold); }
 .section-blue { background: var(--bg-blue); }
 .section-gray { background: var(--light-gray); }
-.section-gold { background: var(--gold); }
-.section-gold h1, .section-gold h2, .section-gold h3 { color: var(--navy); }
-.section-gold p { color: rgba(0,0,0,0.7); }
+.section-gold { background: var(--navy); }
+.section-gold h1, .section-gold h2, .section-gold h3 { color: white; }
+.section-gold p { color: rgba(255,255,255,0.75); }
 .section-white { background: var(--white); }
 
 .section-header { margin-bottom: 56px; }
@@ -603,13 +603,13 @@ footer {
 
 /* Bridge szekció */
 .bridge-section {
-  background: var(--gold);
+  background: var(--navy);
   padding: 80px 24px;
   text-align: center;
 }
 .bridge-inner { max-width: 680px; margin: 0 auto; }
-.bridge-inner h2 { color: var(--navy); margin-bottom: 16px; }
-.bridge-inner p { color: rgba(0,0,0,0.7); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.8; }
+.bridge-inner h2 { color: white; margin-bottom: 16px; }
+.bridge-inner p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.8; }
 
 /* =============================================
    KUTATÁS OLDAL
