@@ -1032,3 +1032,118 @@ footer {
   h2 { font-size: 1.7rem; }
   .btn-group { flex-direction: column; align-items: flex-start; }
 }
+
+/* =============================================
+   ICMM HERO PANEL (újratervezett)
+   ============================================= */
+.icmm-panel {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+}
+.icmm-panel::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+.icmm-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 140px; height: 140px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+.icmm-panel-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.icmm-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.icmm-subtitle {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.icmm-dims {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 36px;
+}
+.icmm-dim {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto;
+  gap: 6px 14px;
+  align-items: center;
+}
+.icmm-pct {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.icmm-bar {
+  height: 3px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.icmm-fill {
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.icmm-name {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.icmm-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.icmm-stat {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: white;
+}
+.icmm-stat-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.icmm-divider {
+  color: rgba(255,255,255,0.2);
+  margin: 0 4px;
+}
