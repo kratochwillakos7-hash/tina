@@ -685,16 +685,7 @@ footer {
   gap: 24px;
   position: relative;
 }
-.tri-diagram::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px; height: 80px;
-  background: var(--navy);
-  border-radius: 50%;
-  z-index: 1;
-}
+
 .tri-node {
   background: var(--white);
   border-radius: 12px;
