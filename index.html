@@ -48,52 +48,41 @@
     </div>
 
     <div class="hero-visual fade-in fade-in-delay-2">
-      <!-- ICMM geometrikus vizualizáció -->
-      <svg class="hero-diagram" viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Háttér körök -->
-        <circle cx="210" cy="180" r="160" stroke="#efefef" stroke-width="1" opacity="0.8"/>
-        <circle cx="210" cy="180" r="120" stroke="#efefef" stroke-width="1" opacity="0.6"/>
-        <circle cx="210" cy="180" r="80" stroke="#efefef" stroke-width="1" opacity="0.4"/>
-
-        <!-- Középső ICMM kör -->
-        <circle cx="210" cy="180" r="48" fill="#0d0d0d"/>
-        <text x="210" y="176" text-anchor="middle" fill="white" font-family="Playfair Display, serif" font-size="11" font-weight="700">ICMM</text>
-        <text x="210" y="192" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif" font-size="8">Modell</text>
-
-        <!-- 4 dimenzió csomópontjai -->
-        <!-- Stratégiai integráció (felső) -->
-        <circle cx="210" cy="52" r="34" fill="#2a2a2a"/>
-        <text x="210" y="48" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="7.5" font-weight="600">Stratégiai</text>
-        <text x="210" y="59" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="7.5">integráció</text>
-        <text x="210" y="70" text-anchor="middle" fill="#555555" font-family="JetBrains Mono, monospace" font-size="7" font-weight="500">30%</text>
-
-        <!-- Bizalom és transzparencia (jobb) -->
-        <circle cx="362" cy="180" r="34" fill="#2a2a2a"/>
-        <text x="362" y="176" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="7.5" font-weight="600">Bizalom &amp;</text>
-        <text x="362" y="187" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="7.5">transzp.</text>
-        <text x="362" y="198" text-anchor="middle" fill="#555555" font-family="JetBrains Mono, monospace" font-size="7" font-weight="500">25%</text>
-
-        <!-- Narratív és vizuális (alsó) -->
-        <circle cx="210" cy="308" r="34" fill="#2a2a2a"/>
-        <text x="210" y="304" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="7.5" font-weight="600">Narratív &amp;</text>
-        <text x="210" y="315" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="7.5">vizuális</text>
-        <text x="210" y="326" text-anchor="middle" fill="#555555" font-family="JetBrains Mono, monospace" font-size="7" font-weight="500">25%</text>
-
-        <!-- Digitális érettség (bal) -->
-        <circle cx="58" cy="180" r="34" fill="#2a2a2a"/>
-        <text x="58" y="176" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="7.5" font-weight="600">Digitális</text>
-        <text x="58" y="187" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="7.5">érettség</text>
-        <text x="58" y="198" text-anchor="middle" fill="#555555" font-family="JetBrains Mono, monospace" font-size="7" font-weight="500">20%</text>
-
-        <!-- Összekötő vonalak -->
-        <line x1="210" y1="86" x2="210" y2="132" stroke="#555555" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-        <line x1="328" y1="180" x2="258" y2="180" stroke="#555555" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-        <line x1="210" y1="274" x2="210" y2="228" stroke="#555555" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-        <line x1="92" y1="180" x2="162" y2="180" stroke="#555555" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-
-        <!-- R² felirat -->
-        <text x="340" y="330" text-anchor="end" fill="#0d0d0d" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.5">R² = 0.632</text>
-      </svg>
+      <div class="icmm-panel">
+        <div class="icmm-panel-header">
+          <span class="icmm-label">ICMM</span>
+          <span class="icmm-subtitle">Innovation Communication Maturity Model</span>
+        </div>
+        <div class="icmm-dims">
+          <div class="icmm-dim">
+            <span class="icmm-pct">30%</span>
+            <div class="icmm-bar"><div class="icmm-fill" style="width:30%"></div></div>
+            <span class="icmm-name">Stratégiai integráció</span>
+          </div>
+          <div class="icmm-dim">
+            <span class="icmm-pct">25%</span>
+            <div class="icmm-bar"><div class="icmm-fill" style="width:25%"></div></div>
+            <span class="icmm-name">Bizalom & transzparencia</span>
+          </div>
+          <div class="icmm-dim">
+            <span class="icmm-pct">25%</span>
+            <div class="icmm-bar"><div class="icmm-fill" style="width:25%"></div></div>
+            <span class="icmm-name">Narratív & vizuális kompetencia</span>
+          </div>
+          <div class="icmm-dim">
+            <span class="icmm-pct">20%</span>
+            <div class="icmm-bar"><div class="icmm-fill" style="width:20%"></div></div>
+            <span class="icmm-name">Digitális érettség</span>
+          </div>
+        </div>
+        <div class="icmm-panel-footer">
+          <span class="icmm-stat">R² = 0,632</span>
+          <span class="icmm-stat-label">prediktív erő</span>
+          <span class="icmm-divider">|</span>
+          <span class="icmm-stat">N = 60</span>
+          <span class="icmm-stat-label">vállalat</span>
+        </div>
+      </div>
     </div>
   </div>
 
