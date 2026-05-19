@@ -7,16 +7,16 @@
 
 /* ---- CSS változók ---- */
 :root {
-  --navy:       #1F3864;
-  --blue:       #2E75B6;
-  --gold:       #C9A961;
-  --gold-light: #e6c97d;
-  --bg-blue:    #DEEBF7;
+  --navy:       #111111;
+  --blue:       #444444;
+  --gold:       #888888;
+  --gold-light: #aaaaaa;
+  --bg-blue:    #efefef;
   --white:      #FFFFFF;
   --offwhite:   #FAFAFA;
-  --light-gray: #F2F2F2;
-  --text:       #262626;
-  --text-muted: #6b7280;
+  --light-gray: #F0F0F0;
+  --text:       #1a1a1a;
+  --text-muted: #666666;
 
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
@@ -200,7 +200,7 @@ h4 { font-size: 1.1rem; font-weight: 600; }
   color: var(--navy);
   border-color: var(--gold);
 }
-.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,169,97,0.35); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 .btn-white {
   background: white;
   color: var(--navy);
@@ -227,7 +227,7 @@ h4 { font-size: 1.1rem; font-weight: 600; }
   position: absolute;
   top: -120px; right: -80px;
   width: 600px; height: 600px;
-  background: radial-gradient(ellipse, rgba(46,117,182,0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(0,0,0,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero::after {
@@ -235,7 +235,7 @@ h4 { font-size: 1.1rem; font-weight: 600; }
   position: absolute;
   bottom: -60px; left: -40px;
   width: 400px; height: 400px;
-  background: radial-gradient(ellipse, rgba(201,169,97,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(0,0,0,0.03) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -962,7 +962,7 @@ footer {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(46,117,182,0.12);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
 }
 .form-group textarea { resize: vertical; min-height: 130px; }
 .form-group.gdpr {
