@@ -3,32 +3,32 @@
    Vizuális identitás & Stíluslap
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ---- CSS változók ---- */
 :root {
-  --navy:       #0d0d0d;
-  --blue:       #2a2a2a;
-  --gold:       #555555;
-  --gold-light: #777777;
-  --bg-blue:    #f0f0f0;
+  --navy:       #1a1a1a;
+  --blue:       #5a6b63;
+  --gold:       #b89a6a;
+  --gold-light: #cdb48a;
+  --bg-blue:    #ede8df;
   --white:      #FFFFFF;
-  --offwhite:   #FAFAFA;
-  --light-gray: #EBEBEB;
+  --offwhite:   #f5f0e8;
+  --light-gray: #ece7de;
   --text:       #1a1a1a;
-  --text-muted: #666666;
+  --text-muted: #7a7165;
 
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body:    'Montserrat', 'Inter', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
   --max-w: 1200px;
   --section-pad: 96px 24px;
   --radius: 6px;
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.18);
+  --shadow-sm: 0 2px 8px rgba(26,20,10,0.08);
+  --shadow-md: 0 8px 32px rgba(26,20,10,0.12);
+  --shadow-lg: 0 16px 48px rgba(26,20,10,0.18);
 }
 
 /* ---- Reset & alap ---- */
@@ -1138,3 +1138,29 @@ footer {
   color: rgba(255,255,255,0.2);
   margin: 0 4px;
 }
+
+/* =============================================
+   BRAND LOGO
+   ============================================= */
+.nav-logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  transition: opacity 0.2s;
+}
+.nav-logo:hover { opacity: 0.75; }
+
+/* Navbar krém háttér */
+.navbar {
+  background: rgba(245,240,232,0.94) !important;
+  border-bottom: 1px solid rgba(26,20,10,0.07) !important;
+}
+
+/* Hero és offwhite szekciók meleg krém */
+body { background: var(--offwhite); }
+
+/* Gombok finomítás brand-hez */
+.btn-primary { background: var(--navy); border-color: var(--navy); }
+.btn-primary:hover { background: #333; border-color: #333; }
+.btn-secondary { color: var(--navy); border-color: var(--navy); }
+.btn-secondary:hover { background: var(--navy); color: white; }
