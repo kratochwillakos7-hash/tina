@@ -1,44 +1,35 @@
 (function() {
-  // Loader SVG path hosszak dinamikusan
+  // Scroll lock
+  document.documentElement.style.overflow = 'hidden';
+
   window.addEventListener('DOMContentLoaded', function() {
-    const loader = document.getElementById('tl-loader');
-    if (!loader) return;
+    var loader = document.getElementById('tl-loader');
+    if (!loader) {
+      document.documentElement.style.overflow = '';
+      return;
+    }
 
-    const paths = loader.querySelectorAll('.tl-draw');
-    paths.forEach(function(path) {
-      const len = path.getTotalLength ? path.getTotalLength() : 200;
-      path.style.strokeDasharray = len;
-      path.style.strokeDashoffset = len;
-    });
-
-    // Animáció elindítása
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        loader.classList.add('tl-animate');
-      });
-    });
+    // Kis delay majd animáció indul
+    setTimeout(function() {
+      loader.classList.add('tl-animate');
+    }, 80);
 
     // Fade out
     setTimeout(function() {
       loader.classList.add('tl-done');
-      setTimeout(function() {
-        loader.style.display = 'none';
-        document.body.style.overflow = '';
-      }, 900);
-    }, 2800);
-  });
+    }, 3200);
 
-  // Body scroll lock amíg tölt
-  document.documentElement.style.overflow = 'hidden';
-  window.addEventListener('DOMContentLoaded', function() {
-    // Ha valami hiba van, 4mp után mindenképp eltűnik
     setTimeout(function() {
-      var loader = document.getElementById('tl-loader');
+      loader.style.display = 'none';
+      document.documentElement.style.overflow = '';
+    }, 4100);
+
+    // Fallback
+    setTimeout(function() {
       if (loader) {
         loader.style.display = 'none';
-        document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
       }
-    }, 4000);
+    }, 5000);
   });
 })();
