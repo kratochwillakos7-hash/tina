@@ -1379,3 +1379,178 @@ body { background: var(--offwhite); }
 
 /* Link hover általánosan */
 a { transition: color 0.2s ease, opacity 0.2s ease; }
+
+
+/* =============================================
+   CINEMATIC ANIMATIONS CSS
+   ============================================= */
+
+/* Custom cursor */
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(184,154,106,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  margin: -18px 0 0 -18px;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.cursor-dot {
+  position: fixed;
+  width: 5px; height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  margin: -2.5px 0 0 -2.5px;
+  transition: transform 0.1s ease;
+}
+.cursor-ring.cursor-hover {
+  width: 56px; height: 56px;
+  margin: -28px 0 0 -28px;
+  background: rgba(184,154,106,0.08);
+  border-color: var(--gold);
+}
+@media (max-width: 768px) {
+  .cursor-ring, .cursor-dot { display: none !important; }
+}
+
+/* Page transition overlay */
+.page-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--offwhite);
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+}
+.page-overlay.overlay-in {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.35s cubic-bezier(0.76,0,0.24,1);
+}
+.page-overlay.overlay-out {
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Word split animation */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.word.word-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ICMM bar smooth */
+.icmm-fill {
+  transition: width 1.4s cubic-bezier(0.16,1,0.3,1) !important;
+}
+
+/* Hero szekció — glass morphism hint */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(ellipse, rgba(184,154,106,0.06) 0%, transparent 65%);
+  pointer-events: none;
+  animation: float-slow 8s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(90,107,99,0.05) 0%, transparent 65%);
+  pointer-events: none;
+  animation: float-slow 10s ease-in-out infinite reverse;
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-24px) scale(1.04); }
+}
+
+/* Navbar logó smooth shrink scrollon */
+.navbar { transition: height 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1) !important; }
+
+/* Stat számok elegáns */
+.stat-num {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider vonal animáció */
+.eyebrow::before {
+  animation: none;
+  transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.visible .eyebrow::before,
+.fade-in.visible .eyebrow::before { width: 32px; }
+
+/* Quote block bal vonal pulse */
+.quote-block {
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 0%;
+  background: var(--gold);
+  transition: height 1s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+/* Remove original border-left on quote-block, use ::after instead */
+
+/* Photo hover */
+.about-photo img {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s ease;
+}
+.about-photo:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 32px 80px rgba(26,20,10,0.2);
+}
+
+/* Industry item hover */
+.industry-item {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+.industry-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(26,20,10,0.1);
+}
+
+/* Download item hover */
+.download-item {
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+}
+.download-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(26,20,10,0.08);
+}
+
+/* Nav logo animáció betöltéskor */
+@keyframes logo-appear {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-logo { animation: logo-appear 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
+
+/* Mobilon cursor off */
+@media (hover: none) {
+  .cursor-ring, .cursor-dot { display: none !important; }
+}
