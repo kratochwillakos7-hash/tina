@@ -1554,3 +1554,99 @@ a { transition: color 0.2s ease, opacity 0.2s ease; }
 @media (hover: none) {
   .cursor-ring, .cursor-dot { display: none !important; }
 }
+
+
+/* =============================================
+   TL LOADER — Cinematic intro
+   ============================================= */
+#tl-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #f5f0e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  transition: opacity 0.9s cubic-bezier(0.76,0,0.24,1);
+}
+
+#tl-loader.tl-done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tl-loader-svg {
+  width: min(320px, 72vw);
+  height: auto;
+  overflow: visible;
+}
+
+/* Vonalak — kezdetben láthatatlan */
+.tl-draw {
+  fill: none;
+  stroke: #1a1a1a;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 999;
+  stroke-dashoffset: 999;
+  transition: none;
+}
+
+.tl-dot {
+  fill: #b89a6a;
+  r: 5;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* T betű — top bar */
+.tl-t-top   { transition: stroke-dashoffset 0.65s cubic-bezier(0.76,0,0.24,1) 0.2s; }
+/* T betű — vertikális */
+.tl-t-vert  { transition: stroke-dashoffset 0.75s cubic-bezier(0.76,0,0.24,1) 0.55s; }
+/* T betű — bottom bar */
+.tl-t-bot   { transition: stroke-dashoffset 0.45s cubic-bezier(0.76,0,0.24,1) 1.0s; }
+/* L betű — vertikális */
+.tl-l-vert  { transition: stroke-dashoffset 0.75s cubic-bezier(0.76,0,0.24,1) 0.7s; }
+/* L betű — ív */
+.tl-l-curve { transition: stroke-dashoffset 0.55s cubic-bezier(0.76,0,0.24,1) 1.2s; }
+
+/* Animate state */
+#tl-loader.tl-animate .tl-draw {
+  stroke-dashoffset: 0;
+}
+#tl-loader.tl-animate .tl-dot {
+  transform: scale(1);
+  transition-delay: 0.95s;
+}
+
+/* Loader subtitle */
+.tl-loader-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b89a6a;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease 1.8s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 1.8s;
+}
+#tl-loader.tl-animate .tl-loader-sub {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Progress vonal */
+.tl-loader-line {
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b89a6a, transparent);
+  position: absolute;
+  bottom: 0; left: 0;
+  transition: width 2.4s cubic-bezier(0.16,1,0.3,1) 0.3s;
+}
+#tl-loader.tl-animate .tl-loader-line {
+  width: 100%;
+}
