@@ -1164,3 +1164,218 @@ body { background: var(--offwhite); }
 .btn-primary:hover { background: #333; border-color: #333; }
 .btn-secondary { color: var(--navy); border-color: var(--navy); }
 .btn-secondary:hover { background: var(--navy); color: white; }
+
+/* =============================================
+   ELEGÁNS ANIMÁCIÓK & SMOOTH MEGJELENÉS
+   ============================================= */
+
+/* Alap animáció változók */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-med: 0.4s var(--ease-out-expo);
+  --transition-slow: 0.7s var(--ease-out-expo);
+}
+
+/* Javított fade-in — irányokból érkeznek */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in-delay-1 { transition-delay: 0.12s; }
+.fade-in-delay-2 { transition-delay: 0.22s; }
+.fade-in-delay-3 { transition-delay: 0.34s; }
+.fade-in-delay-4 { transition-delay: 0.46s; }
+
+/* Kártyák — elegáns hover */
+.card {
+  transition: transform 0.35s var(--ease-out-expo),
+              box-shadow 0.35s var(--ease-out-expo),
+              border-color 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(26,20,10,0.13);
+  border-color: var(--gold);
+}
+
+/* Gombok — smooth */
+.btn {
+  transition: transform 0.25s var(--ease-out-expo),
+              box-shadow 0.25s var(--ease-out-expo),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.btn:hover::after { opacity: 1; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,20,10,0.15); }
+.btn:active { transform: translateY(0); }
+
+/* Navbar link hover — aláhúzás animáció */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 14px; right: 14px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-links a.nav-cta::after { display: none; }
+
+/* Navbar scroll — smooth megjelenés */
+.navbar {
+  transition: box-shadow 0.3s ease, background 0.3s ease, height 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 80px;
+}
+.navbar.scrolled {
+  height: 64px;
+  box-shadow: 0 2px 20px rgba(26,20,10,0.1) !important;
+}
+
+/* Hamburger menü — smooth animáció */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.hamburger span {
+  transition: transform 0.3s var(--ease-in-out-quart),
+              opacity 0.2s ease;
+}
+
+/* Mobile menü — slide down */
+.nav-links {
+  transition: all 0.4s var(--ease-out-expo);
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--offwhite);
+    padding: 100px 24px 32px;
+    gap: 4px;
+    box-shadow: 0 16px 48px rgba(26,20,10,0.12);
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav-links a {
+    font-size: 1rem;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border-bottom: 1px solid rgba(26,20,10,0.06);
+  }
+  .nav-links a::after { display: none; }
+  .nav-links .nav-cta {
+    margin-top: 8px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Hero — jobb mobil */
+@media (max-width: 768px) {
+  .hero { padding: 100px 20px 60px; }
+  .hero-grid { gap: 32px; }
+  .page-hero { padding: 110px 20px 60px; min-height: 40vh; }
+  .about-hero-grid { gap: 40px; }
+  .about-photo { max-width: 280px; margin: 0 auto; }
+  .icmm-panel { padding: 28px 24px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .btn-group { flex-direction: column; gap: 10px; }
+  .btn-group .btn { width: 100%; justify-content: center; }
+  .section { padding: 56px 20px; }
+  .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .project-cards { grid-template-columns: 1fr; }
+  .dim-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .industry-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .competence-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
+  h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+}
+
+/* Projekt és referencia kártyák */
+.project-card {
+  transition: transform 0.3s var(--ease-out-expo),
+              box-shadow 0.3s var(--ease-out-expo);
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,20,10,0.1);
+}
+
+/* Kontakt kártyák */
+.contact-card {
+  transition: transform 0.35s var(--ease-out-expo),
+              box-shadow 0.35s var(--ease-out-expo);
+}
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(26,20,10,0.12);
+}
+
+/* Timeline pont animáció */
+.timeline-item::before {
+  transition: transform 0.3s var(--ease-out-expo),
+              background 0.3s ease;
+}
+.timeline-item:hover::before {
+  transform: scale(1.4);
+  background: var(--navy);
+}
+
+/* Nav logo smooth */
+.nav-logo {
+  transition: opacity 0.2s ease, transform 0.3s var(--ease-out-expo);
+}
+.navbar.scrolled .nav-logo {
+  height: 52px !important;
+}
+
+/* Smooth scroll highlight */
+::selection {
+  background: rgba(184,154,106,0.25);
+  color: var(--navy);
+}
+
+/* Link hover általánosan */
+a { transition: color 0.2s ease, opacity 0.2s ease; }
