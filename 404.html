@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Az oldal nem található | Tina Lichtenthal</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--offwhite);
+      position: relative;
+      overflow: hidden;
+    }
+    .error-page::before {
+      content: '404';
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(180px, 35vw, 320px);
+      font-weight: 300;
+      color: rgba(184,154,106,0.07);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+    }
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+    }
+    .error-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .error-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 24px auto;
+    }
+    .error-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .error-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .error-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="assets/img/logo.svg" alt="Tina Lichtenthal" class="nav-logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="rolam.html">Rólam</a></li>
+    <li><a href="mesterseg.html">Art of Innovation</a></li>
+    <li><a href="kutatas.html">Kutatás</a></li>
+    <li><a href="kerdoiv.html">Kérdőív</a></li>
+    <li><a href="muhely.html">Műhely</a></li>
+    <li><a href="kapcsolat.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="error-page">
+  <div class="error-content">
+    <svg width="64" height="64" viewBox="0 0 300 155" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 32px;opacity:0.4;">
+      <path d="M18,22 L122,22" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M70,22 L70,128" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M70,128 L122,128" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="148" cy="75" r="5" fill="#b89a6a"/>
+      <path d="M174,22 L174,128" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M174,128 Q214,128 282,118" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <span class="error-num">404</span>
+    <div class="error-divider"></div>
+    <h1 class="error-title">Ez az oldal nem található</h1>
+    <p class="error-desc">Az összefüggések néha megszakadnak — de ez az oldal valószínűleg soha nem létezett, vagy már más helyre költözött.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn btn-primary">Vissza a főoldalra</a>
+      <a href="kapcsolat.html" class="btn btn-secondary">Kapcsolat</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
